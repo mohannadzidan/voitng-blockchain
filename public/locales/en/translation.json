@@ -13,5 +13,25 @@
     "login": "login",
     "other_language": "العربية",
     "mobile": "Mobile",
-    "laptop": "Laptop"
+    "laptop": "Laptop",
+    "landing": {
+        "features": {
+            "title": "Features",
+            "feat_1": "Secured By Blockchain Technology",
+            "feat_2": "Backed By Ethereum Based Technology",
+            "feat_3": "Verifiable Voter By Using Face Recognition",
+            "feat_4": "Easy To Use",
+            "feat_5": "Cheaper Than Paper Voting System",
+            "feat_6": "Real Time Voting Results"
+        },
+        "steps": {
+            "title": "Follow These Easy Steps ",
+            "step_1": "Register yourself by filling the required information",
+            "step_2": "Get Your Hash code (Keep it Secret)",
+            "step_3": "Go to vote option",
+            "step_4": "Give Your Hash code",
+            "step_5": "Cheaper Than Paper Voting System",
+            "step_6": "Vote your candidate and submit"
+        }
+    }
 }
