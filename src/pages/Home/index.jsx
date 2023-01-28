@@ -20,6 +20,7 @@ import TargetIcon from "../../components/icons/TargetIcon";
 import KeyIcon from "../../components/icons/KeyIcon";
 import VoteIcon from "../../components/icons/VoteIcon";
 import PriceTagIcon from "../../components/icons/PriceTagIcon";
+import ProjectMember from "./ProjectMember";
 
 function Home() {
   const { t } = useTranslation();
@@ -68,12 +69,7 @@ function Home() {
               </Stack>
             </Grid>
           </Grid>
-          <Stack
-            direction="row"
-            spacing={1}
-            alignItems="center"
-            alignItems="center"
-          >
+          <Stack direction="row" spacing={1} alignItems="center">
             <Typography component="span">{t("hero.vote_with")}</Typography>
             <LaptopIcon fontSize="large" />
             <Typography component="span">{t("laptop")}</Typography>
@@ -85,11 +81,11 @@ function Home() {
           </Stack>
         </Container>
       </Section>
-      <Section>
+      <Section sx={{ minHeight: "unset" }}>
         <Container
           maxWidth="lg"
           sx={{
-            paddingY: 8,
+            paddingY: 2,
             height: "100%",
           }}
         >
@@ -324,11 +320,63 @@ function Home() {
         <Container
           maxWidth="lg"
           sx={{
-            paddingY: 8,
+            paddingY: 2,
             display: "flex",
             flexDirection: "column",
           }}
-        ></Container>
+        >
+          <Stack spacing={2}>
+            <Typography variant="h2" color="secondary" fontWeight="medium">
+              {t("landing.about.title")}
+            </Typography>
+            <Typography variant="body1" fontWeight="medium">
+              {t("landing.about.p1")}
+            </Typography>
+            <Typography
+              variant="h3"
+              color="secondary"
+              fontWeight="medium"
+              textAlign="center"
+            >
+              {t("landing.about.meet_the_team")}
+            </Typography>
+            <Typography
+              variant="body1"
+              color="secondary"
+              fontWeight="medium"
+              textAlign="center"
+            >
+              {t("landing.about.meet_the_team_p1")}
+            </Typography>
+            <Grid container columnSpacing={3} rowSpacing={3}>
+              <Grid item xs display="flex" justifyContent="center">
+                <ProjectMember name="Omar Tarek" />
+              </Grid>
+              <Grid item xs display="flex" justifyContent="center">
+                <ProjectMember name="Omar Tarek" />
+              </Grid>
+              <Grid item xs display="flex" justifyContent="center">
+                <ProjectMember name="Omar Tarek" />
+              </Grid>
+              <Grid item xs display="flex" justifyContent="center">
+                <ProjectMember name="Omar Tarek" />
+              </Grid>
+              <Grid item xs display="flex" justifyContent="center">
+                <ProjectMember name="Omar Tarek" />
+              </Grid>
+            </Grid>
+            {/* <Stack
+              direction="row"
+              justifyContent="center"
+              spacing={2}
+              flexWrap="wrap"
+            >
+              <ProjectMember name="Omar Tarek" />
+              <ProjectMember name="Omar Tarek" />
+           
+            </Stack> */}
+          </Stack>
+        </Container>
       </Section>
       {/* <Section>
         <Container

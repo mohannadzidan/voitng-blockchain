@@ -32,6 +32,12 @@
             "step_4": "Give Your Hash code",
             "step_5": "Cheaper Than Paper Voting System",
             "step_6": "Vote your candidate and submit"
+        },
+        "about": {
+            "title": "About",
+            "meet_the_team": "Meet the team",
+            "meet_the_team_p1": "We are five Computer Engineering students at El Shorouk academy",
+            "p1": "An online voting system that will replace the  old paper system. Over the time we have utilized the required technology in every sector to improve efficiency and save the extra resources. But the voting system is still very  expensive and requires a bigger workforce. The system is slower and still not completely tamper proof. We bring the system that is safe, reliable and solve the modern issues like higher reachability of the booth, crowd free voting,  inexpensive, faster results and others."
         }
     }
 }
