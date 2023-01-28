@@ -17,6 +17,9 @@ function ProjectMember({ displayImage, name, facebookLink, linkedinLink }) {
       sx={{
         paddingY: 3,
         paddingX: 2,
+        width: "210px",
+        boxSizing: "border-box",
+        alignItems: "center",
       }}
       component={Stack}
       elevation={3}
@@ -51,7 +54,7 @@ function ProjectMember({ displayImage, name, facebookLink, linkedinLink }) {
         </svg>
         <Avatar src={displayImage} sx={{ width: 158, height: 158 }} />
       </Box>
-      <Stack spacing={1}>
+      <Stack spacing={1} justifyContent="space-between" flex={1}>
         <Typography variant="h5" fontWeight="medium" textAlign="center">
           {name}
         </Typography>

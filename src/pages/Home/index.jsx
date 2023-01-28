@@ -22,6 +22,40 @@ import VoteIcon from "../../components/icons/VoteIcon";
 import PriceTagIcon from "../../components/icons/PriceTagIcon";
 import ProjectMember from "./ProjectMember";
 
+const teamMembers = [
+  {
+    name: "Omar Tarek",
+    displayImage: "/images/team-members/omar-tarek.jpg",
+    linkedinProfile: "https://www.linkedin.com/in/omar-tareq9/",
+    facebookProfile: "https://www.facebook.com/otareq",
+  },
+  {
+    name: "Mohamed Abd-Elhalim",
+    displayImage: "/images/team-members/mohamed-abdelhalim.jpg",
+    linkedinProfile: "",
+    facebookProfile: "",
+  },
+  {
+    name: "Youssef Abdelrahman",
+    displayImage: "/images/team-members/youssef-abdelrahman.jpg",
+    linkedinProfile:
+      "https://www.linkedin.com/in/youssef-abdelrahman-31380822a/",
+    facebookProfile: "https://www.facebook.com/youssef.abdelrahman.96",
+  },
+  {
+    name: "Mohamed Diab",
+    displayImage: "/images/team-members/mohamed-diab.jpeg",
+    linkedinProfile: "https://www.linkedin.com/in/mohamad-diab-b8180219b/",
+    facebookProfile: "https://www.facebook.com/Mohamad.Diab2000",
+  },
+  {
+    name: "Mohamed Khalid",
+    displayImage: "/images/team-members/mohamed-khalid.jpg",
+    linkedinProfile: "https://www.linkedin.com/in/mohamed-khaled-916b10234/",
+    facebookProfile: "https://www.facebook.com/profile.php?id=100002159652083",
+  },
+];
+
 function Home() {
   const { t } = useTranslation();
   return (
@@ -349,21 +383,22 @@ function Home() {
               {t("landing.about.meet_the_team_p1")}
             </Typography>
             <Grid container columnSpacing={3} rowSpacing={3}>
-              <Grid item xs display="flex" justifyContent="center">
-                <ProjectMember name="Omar Tarek" />
-              </Grid>
-              <Grid item xs display="flex" justifyContent="center">
-                <ProjectMember name="Omar Tarek" />
-              </Grid>
-              <Grid item xs display="flex" justifyContent="center">
-                <ProjectMember name="Omar Tarek" />
-              </Grid>
-              <Grid item xs display="flex" justifyContent="center">
-                <ProjectMember name="Omar Tarek" />
-              </Grid>
-              <Grid item xs display="flex" justifyContent="center">
-                <ProjectMember name="Omar Tarek" />
-              </Grid>
+              {teamMembers.map((x) => (
+                <Grid
+                  item
+                  xs
+                  display="flex"
+                  justifyContent="center"
+                  key={x.name}
+                >
+                  <ProjectMember
+                    name={x.name}
+                    displayImage={x.displayImage}
+                    facebookLink={x.facebookProfile}
+                    linkedinLink={x.linkedinProfile}
+                  />
+                </Grid>
+              ))}
             </Grid>
             {/* <Stack
               direction="row"
