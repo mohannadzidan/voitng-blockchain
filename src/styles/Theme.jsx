@@ -11,7 +11,7 @@ function Theme({ children }) {
         typography: {
           fontWeightLight: 300,
           fontWeightMedium: 500,
-          fontWeightLight: 700,
+          fontWeightBold: 700,
           h1: {
             fontSize: 49,
           },
