@@ -20,6 +20,7 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import { useTranslation } from "react-i18next";
+import Footer from "./components/Footer";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -44,6 +45,7 @@ function App() {
           </Bubble> */}
             <Route path="/" element={<Home />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </Theme>
     </CacheProvider>

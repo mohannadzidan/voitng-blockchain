@@ -10,10 +10,16 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import VoteIcon from "./VoteIcon";
+import BigVoteIcon from "./VoteIcon";
 import LaptopIcon from "./LaptopIcon";
 import MobileIcon from "./MobileIcon";
 import { useTranslation } from "react-i18next";
+import RegisterIcon from "../../components/icons/RegisterIcon";
+import WindowsIcon from "../../components/icons/WindowsIcon";
+import TargetIcon from "../../components/icons/TargetIcon";
+import KeyIcon from "../../components/icons/KeyIcon";
+import VoteIcon from "../../components/icons/VoteIcon";
+import PriceTagIcon from "../../components/icons/PriceTagIcon";
 
 function Home() {
   const { t } = useTranslation();
@@ -43,7 +49,7 @@ function Home() {
               alignItems="center"
               height="60vh"
             >
-              <VoteIcon />
+              <BigVoteIcon />
             </Grid>
             <Grid item xs={6} display="flex" alignItems="center">
               <Stack spacing={2}>
@@ -280,31 +286,31 @@ function Home() {
               </Typography>
               <Stack spacing={1}>
                 <Stack direction="row" spacing={1} alignItems="center">
+                  <RegisterIcon />
                   <Typography variant="body1">
                     {t("landing.steps.step_1")}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1} alignItems="center">
+                  <TargetIcon />
                   <Typography variant="body1">
                     {t("landing.steps.step_2")}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1} alignItems="center">
+                  <WindowsIcon />
                   <Typography variant="body1">
                     {t("landing.steps.step_3")}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1} alignItems="center">
-                  <Typography variant="body1">
-                    {t("landing.steps.step_4")}
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1} alignItems="center">
+                  <KeyIcon />
                   <Typography variant="body1">
                     {t("landing.steps.step_5")}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1} alignItems="center">
+                  <VoteIcon />
                   <Typography variant="body1">
                     {t("landing.steps.step_6")}
                   </Typography>
@@ -312,10 +318,17 @@ function Home() {
               </Stack>
             </Grid>
           </Grid>
-          <Stack></Stack>
-
-          <Stack></Stack>
         </Container>
+      </Section>
+      <Section>
+        <Container
+          maxWidth="lg"
+          sx={{
+            paddingY: 8,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        ></Container>
       </Section>
       {/* <Section>
         <Container
