@@ -41,9 +41,9 @@ function Theme({ children }) {
             // #313b57 dark
           },
           secondary: {
-            main: "#1a1fa3",
-            light: "#2529b1",
-            dark: "#181c98",
+            main: "#222145",
+            light: "#282752",
+            dark: "#1d1c3a",
           },
           common: {
             black: "#1F1E27",
