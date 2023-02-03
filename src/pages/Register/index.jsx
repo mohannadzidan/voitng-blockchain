@@ -9,6 +9,7 @@ import MultiStepForm, {
 } from "../../components/MultiStepForm";
 import IdentityVerificationForm from "./IdentityVerificationForm";
 import ReviewDetailsForm from "./ReviewDetailsForm";
+import FinishRegistrationForm from "./FinishRegistrationForm";
 
 const Wrapper = styled("div")`
   min-height: 100vh;
@@ -44,7 +45,7 @@ function Register() {
             <ReviewDetailsForm />
           </FormStep>
           <FormStep index={3}>
-            <ReviewDetailsForm />
+            <FinishRegistrationForm />
           </FormStep>
         </MultiStepForm>
       </Container>
