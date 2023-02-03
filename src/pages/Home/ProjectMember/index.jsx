@@ -59,10 +59,20 @@ function ProjectMember({ displayImage, name, facebookLink, linkedinLink }) {
           {name}
         </Typography>
         <Stack spacing={1} direction="row" justifyContent="center">
-          <IconButton color="primary">
+          <IconButton
+            color="primary"
+            target="_blank"
+            href={facebookLink}
+            component="a"
+          >
             <FacebookIcon />
           </IconButton>
-          <IconButton color="primary">
+          <IconButton
+            color="primary"
+            target="_blank"
+            href={linkedinLink}
+            component="a"
+          >
             <LinkedInIcon />
           </IconButton>
         </Stack>

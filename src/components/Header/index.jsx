@@ -12,12 +12,24 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
-import { useMemo } from "react";
 import AppLogo from "../AppLogo";
 import LanguageIcon from "@mui/icons-material/Language";
-import { useCallback } from "react";
-import { useTransition } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
+import { scroller } from "react-scroll";
+
+function useNavScroll(path, hash, { timeoutRef, ...options }) {
+  const navigate = useNavigate();
+  return useCallback(() => {
+    setTimeout(() => {});
+    clearTimeout(timeoutRef.current);
+    navigate(`${path}#${hash}`);
+    timeoutRef.current = setTimeout(() => {
+      scroller.scrollTo(hash, options);
+    }, 100);
+  }, [navigate, path, hash]);
+}
 
 function Header() {
   const trigger = useScrollTrigger({
@@ -36,6 +48,19 @@ function Header() {
     document.dir = dir;
     i18n.changeLanguage(i18n.language === "en" ? "ar" : "en");
   }, [i18n]);
+  const scrollTimeoutRef = useRef();
+  const goToAbout = useNavScroll("/", "about", {
+    timeoutRef: scrollTimeoutRef,
+    offset: -64,
+    duration: 500,
+    smooth: true,
+  });
+  const goToContact = useNavScroll("/", "contact", {
+    timeoutRef: scrollTimeoutRef,
+    offset: -82,
+    duration: 500,
+    smooth: true,
+  });
   return (
     <AppBar
       sx={{
@@ -71,9 +96,18 @@ function Header() {
           </Button>
           <Box flex={1} />
           <Stack direction="row" spacing={2}>
-            <Button color="inherit">{t("about")}</Button>
-            <Button color="inherit">{t("contact")}</Button>
-            <Button variant="contained" color="primary">
+            <Button color="inherit" onClick={goToAbout}>
+              {t("about")}
+            </Button>
+            <Button color="inherit" onClick={goToContact}>
+              {t("contact")}
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              to={"/register"}
+              component={Link}
+            >
               {t("login")}
             </Button>
           </Stack>

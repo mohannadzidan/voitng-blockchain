@@ -21,6 +21,7 @@ import KeyIcon from "../../components/icons/KeyIcon";
 import VoteIcon from "../../components/icons/VoteIcon";
 import PriceTagIcon from "../../components/icons/PriceTagIcon";
 import ProjectMember from "./ProjectMember";
+import { Link } from "react-router-dom";
 
 const teamMembers = [
   {
@@ -93,7 +94,12 @@ function Home() {
                 </Typography>
                 <Typography variant="body1">{t("hero.quote1")}</Typography>
                 <Stack direction="row" spacing={2}>
-                  <Button variant="contained" disableElevation>
+                  <Button
+                    variant="contained"
+                    to={"/register"}
+                    component={Link}
+                    disableElevation
+                  >
                     {t("hero.vote_now")}
                   </Button>
                   <Button variant="text" color="white" disableElevation>
@@ -350,7 +356,7 @@ function Home() {
           </Grid>
         </Container>
       </Section>
-      <Section>
+      <Section id="about">
         <Container
           maxWidth="lg"
           sx={{
@@ -371,6 +377,7 @@ function Home() {
               color="secondary"
               fontWeight="medium"
               textAlign="center"
+              id="contact"
             >
               {t("landing.about.meet_the_team")}
             </Typography>

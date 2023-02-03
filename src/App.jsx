@@ -21,6 +21,7 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import { useTranslation } from "react-i18next";
 import Footer from "./components/Footer";
+import Register from "./pages/Register";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -44,6 +45,7 @@ function App() {
             <RegistrationForm />
           </Bubble> */}
             <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
           <Footer />
         </BrowserRouter>
