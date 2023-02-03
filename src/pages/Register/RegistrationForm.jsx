@@ -1,12 +1,14 @@
 import { Stack, TextField, Typography } from "@mui/material";
 import React from "react";
+import { useMultiStepForm } from "../../components/MultiStepForm";
 import RegistrationFigure from "./figures/RegistrationFigure";
 import RegistrationLayout from "./RegistrationLayout";
 
 function RegistrationForm() {
+  const { next } = useMultiStepForm();
   return (
     <RegistrationLayout
-      onNext={() => {}}
+      onNext={next}
       title="Registration"
       figure={RegistrationFigure}
     >

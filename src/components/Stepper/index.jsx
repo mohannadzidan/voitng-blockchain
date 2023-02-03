@@ -1,19 +1,13 @@
 import React from "react";
 import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Paper,
-  Stack,
   Step,
   StepConnector,
   stepConnectorClasses,
   StepLabel,
   Stepper as MuiStepper,
   styled,
-  Typography,
 } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -85,7 +79,7 @@ function QontoStepIcon(props) {
 function Stepper({ activeStep = 0, titles = [], ...props }) {
   return (
     <MuiStepper
-      activeStep={activeStep}
+      activeStep={typeof activeStep === "function" ? activeStep() : activeStep}
       alternativeLabel
       sx={{ margin: 2 }}
       connector={<QontoConnector />}

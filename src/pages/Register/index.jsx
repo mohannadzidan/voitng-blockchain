@@ -3,6 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Route, Routes, useSearchParams } from "react-router-dom";
 import RegistrationForm from "./RegistrationForm";
 import Stepper from "../../components/Stepper";
+import MultiStepForm, {
+  FormStep,
+  useMultiStepForm,
+} from "../../components/MultiStepForm";
+import IdentityVerificationForm from "./IdentityVerificationForm";
+import ReviewDetailsForm from "./ReviewDetailsForm";
 
 const Wrapper = styled("div")`
   min-height: 100vh;
@@ -20,10 +26,27 @@ function Register() {
   return (
     <Wrapper>
       <Container maxWidth="lg" sx={{ paddingTop: 10 }}>
-        <Stepper titles={titles} activeStep={0}/>
-        <Routes>
-          <Route index element={<RegistrationForm />} />
-        </Routes>
+        <MultiStepForm>
+          <Stepper
+            titles={titles}
+            activeStep={() => {
+              const { currentStep } = useMultiStepForm();
+              return currentStep;
+            }}
+          />
+          <FormStep index={0}>
+            <RegistrationForm />
+          </FormStep>
+          <FormStep index={1}>
+            <IdentityVerificationForm />
+          </FormStep>
+          <FormStep index={2}>
+            <ReviewDetailsForm />
+          </FormStep>
+          <FormStep index={3}>
+            <ReviewDetailsForm />
+          </FormStep>
+        </MultiStepForm>
       </Container>
     </Wrapper>
   );

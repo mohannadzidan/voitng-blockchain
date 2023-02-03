@@ -30,18 +30,20 @@ function RegistrationLayout({
       </Typography>
       <Grid container rowSpacing={4} columnSpacing={2}>
         <Grid item xs={12}></Grid>
-        <Grid item xs={6}>
+        <Grid item xs={figure ? 6 : 12}>
           <Box marginLeft={2}>{children}</Box>
         </Grid>
-        <Grid
-          item
-          xs={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          {React.createElement(figure)}
-        </Grid>
+        {figure && (
+          <Grid
+            item
+            xs={6}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            {React.createElement(figure)}
+          </Grid>
+        )}
         {(onBack || onNext) && (
           <Grid item xs={12}>
             <Stack

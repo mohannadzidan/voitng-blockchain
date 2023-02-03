@@ -10,7 +10,7 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import BigVoteIcon from "./VoteIcon";
+import HeroIllustration from "./HeroIllustration";
 import LaptopIcon from "./LaptopIcon";
 import MobileIcon from "./MobileIcon";
 import { useTranslation } from "react-i18next";
@@ -85,7 +85,7 @@ function Home() {
               alignItems="center"
               height="60vh"
             >
-              <BigVoteIcon />
+              <HeroIllustration />
             </Grid>
             <Grid item xs={6} display="flex" alignItems="center">
               <Stack spacing={2}>

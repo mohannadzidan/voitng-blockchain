@@ -25,9 +25,9 @@ function AppLogo(props) {
           width="56"
           height="56"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -61,8 +61,8 @@ function AppLogo(props) {
           y2="48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9F9F9" />
-          <stop offset="1" stop-color="#DFE0FF" />
+          <stop stopColor="#F9F9F9" />
+          <stop offset="1" stopColor="#DFE0FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_308_8402"
@@ -72,8 +72,8 @@ function AppLogo(props) {
           y2="12.8637"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FB6054" />
-          <stop offset="1" stop-color="#FF5763" />
+          <stop stopColor="#FB6054" />
+          <stop offset="1" stopColor="#FF5763" />
         </linearGradient>
       </defs>
     </SvgIcon>
