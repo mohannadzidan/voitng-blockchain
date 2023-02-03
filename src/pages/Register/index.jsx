@@ -1,4 +1,4 @@
-import { Container, styled } from "@mui/material";
+import { Container, Paper, styled } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useSearchParams } from "react-router-dom";
 import RegistrationForm from "./RegistrationForm";
@@ -35,18 +35,28 @@ function Register() {
               return currentStep;
             }}
           />
-          <FormStep index={0}>
-            <RegistrationForm />
-          </FormStep>
-          <FormStep index={1}>
-            <IdentityVerificationForm />
-          </FormStep>
-          <FormStep index={2}>
-            <ReviewDetailsForm />
-          </FormStep>
-          <FormStep index={3}>
-            <FinishRegistrationForm />
-          </FormStep>
+          <Paper
+            sx={{
+              padding: 4,
+              marginX: 16,
+              borderRadius: "8px",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              background: "#fff",
+            }}
+          >
+            <FormStep index={0}>
+              <RegistrationForm />
+            </FormStep>
+            <FormStep index={1}>
+              <IdentityVerificationForm />
+            </FormStep>
+            <FormStep index={2}>
+              <ReviewDetailsForm />
+            </FormStep>
+            <FormStep index={3}>
+              <FinishRegistrationForm />
+            </FormStep>
+          </Paper>
         </MultiStepForm>
       </Container>
     </Wrapper>

@@ -24,25 +24,15 @@ export function useMultiStepForm() {
 
 export function FormStep({ index, children }) {
   const { currentStep } = useMultiStepForm();
-  const [isVisible, setIsVisible] = useState(currentStep === index);
+  const isVisible = currentStep === index;
   const transition = useTransition(isVisible, {
     config: {
       duration: 200,
     },
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    from: { position: "absolute", visibility: "hidden", opacity: 0 },
+    enter: { position: "relative", visibility: "visible", opacity: 1 },
+    leave: { position: "absolute", visibility: "hidden", opacity: 0 },
   });
-  useEffect(() => {
-    if (currentStep !== index) {
-      setIsVisible(false);
-      return;
-    }
-    const timeout = setTimeout(() => setIsVisible(true), 230);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [currentStep, index]);
   return transition(
     (style, item) =>
       item && <animated.div style={style}>{children}</animated.div>
