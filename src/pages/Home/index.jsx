@@ -96,7 +96,7 @@ function Home() {
                 <Stack direction="row" spacing={2}>
                   <Button
                     variant="contained"
-                    to={"/register"}
+                    to={"/preparation"}
                     component={Link}
                     disableElevation
                   >

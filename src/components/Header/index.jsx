@@ -105,7 +105,7 @@ function Header() {
             <Button
               variant="contained"
               color="primary"
-              to={"/register"}
+              to={"/preparation"}
               component={Link}
             >
               {t("login")}
