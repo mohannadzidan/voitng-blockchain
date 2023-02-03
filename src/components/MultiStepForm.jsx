@@ -3,9 +3,10 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
-import { useTransition, animated } from "react-spring";
+import { useTransition, animated, useSpring } from "react-spring";
 
 const MultiStepFormContext = createContext({
   isDefault: true,
@@ -39,13 +40,51 @@ export function FormStep({ index, children }) {
   );
 }
 
-export default function MultiStepForm({ children }) {
-  const [currentStep, setCurrentStep] = useState(0);
-  const next = useCallback(() => setCurrentStep((p) => p + 1), []);
-  const previous = useCallback(() => setCurrentStep((p) => p - 1), []);
+export default function MultiStepForm({
+  step = 0,
+  onChange = (step) => {},
+  children,
+}) {
+  const wrapperRef = useRef();
+  const next = useCallback(() => onChange(step + 1), [step, onChange]);
+  const previous = useCallback(() => onChange(step - 1), [step, onChange]);
+  const [spring, animate] = useSpring(
+    () => ({
+      height: "0px",
+      config: {
+        damping: 0.8,
+        friction: 16,
+      },
+    }),
+    []
+  );
+
+  useEffect(() => {
+    let previousHeight = wrapperRef.current.offsetHeight;
+    const resizeObserver = new ResizeObserver(() => {
+      const height = wrapperRef.current.offsetHeight;
+      const deltaH = height - previousHeight;
+      previousHeight = height;
+      if (height > 0)
+        animate({
+          height: height + "px",
+        });
+    });
+
+    resizeObserver.observe(wrapperRef.current);
+    console.log("re observed");
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [animate]);
+
   return (
-    <MultiStepFormContext.Provider value={{ currentStep, next, previous }}>
-      {children}
+    <MultiStepFormContext.Provider
+      value={{ currentStep: step, next, previous }}
+    >
+      <animated.div style={{ ...spring }}>
+        <div ref={wrapperRef}>{children}</div>
+      </animated.div>
     </MultiStepFormContext.Provider>
   );
 }

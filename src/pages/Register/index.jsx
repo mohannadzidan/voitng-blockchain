@@ -1,4 +1,4 @@
-import { Container, Paper, styled } from "@mui/material";
+import { Container, Paper, styled, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useSearchParams } from "react-router-dom";
 import RegistrationForm from "./RegistrationForm";
@@ -24,26 +24,25 @@ const titles = [
 ];
 
 function Register() {
+  const [step, setStep] = useState(0);
   return (
     <Wrapper>
       <Container maxWidth="lg" sx={{ paddingTop: 10 }}>
-        <MultiStepForm>
-          <Stepper
-            titles={titles}
-            activeStep={() => {
-              const { currentStep } = useMultiStepForm();
-              return currentStep;
-            }}
-          />
-          <Paper
-            sx={{
-              padding: 4,
-              marginX: 16,
-              borderRadius: "8px",
-              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-              background: "#fff",
-            }}
-          >
+        <Stepper
+          titles={titles}
+          activeStep={step}
+        />
+        <Paper
+          sx={{
+            padding: 4,
+            marginX: 16,
+            borderRadius: "8px",
+            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+            background: "#fff",
+            boxSizing: "border-box",
+          }}
+        >
+          <MultiStepForm step={step} onChange={setStep}>
             <FormStep index={0}>
               <RegistrationForm />
             </FormStep>
@@ -56,8 +55,8 @@ function Register() {
             <FormStep index={3}>
               <FinishRegistrationForm />
             </FormStep>
-          </Paper>
-        </MultiStepForm>
+          </MultiStepForm>
+        </Paper>
       </Container>
     </Wrapper>
   );
