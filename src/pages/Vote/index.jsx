@@ -7,7 +7,7 @@ import MultiStepForm, {
   useMultiStepForm,
 } from "../../components/MultiStepForm";
 import Rules from "./Rules";
-import HashCodeForm from "./HashcodeForm";
+import HashCodeForm from "./HashCodeForm";
 import VotingForm from "./VotingForm";
 
 const Wrapper = styled("div")`
