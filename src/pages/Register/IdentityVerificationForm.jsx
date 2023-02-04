@@ -1,18 +1,26 @@
-import { Box, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import Webcam from "react-webcam";
 import { useMultiStepForm } from "../../components/MultiStepForm";
 import VerificationFigure from "./figures/VerificationFigure";
-import RegistrationLayout from "./RegistrationLayout";
+import HussainedForm, {
+  HussainedFormActions,
+} from "../../containers/HussainedForm";
 
 function IdentityVerificationForm() {
   const { next, previous } = useMultiStepForm();
   return (
-    <RegistrationLayout
-      onNext={next}
-      onBack={previous}
+    <HussainedForm
       title="Identity verification"
       figure={VerificationFigure}
+      actions={
+        <HussainedFormActions>
+        <Button onClick={previous}>Back</Button>
+        <Button variant="contained" onClick={next}>
+          Next
+        </Button>
+      </HussainedFormActions>
+      }
     >
       <Webcam
         style={{
@@ -24,7 +32,7 @@ function IdentityVerificationForm() {
           objectFit: "cover",
         }}
       />
-    </RegistrationLayout>
+    </HussainedForm>
   );
 }
 

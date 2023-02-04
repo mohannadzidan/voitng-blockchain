@@ -23,6 +23,8 @@ import { useTranslation } from "react-i18next";
 import Footer from "./components/Footer";
 import Register from "./pages/Register";
 import Preparation from "./pages/Preparation";
+import Vote from "./pages/Vote";
+import Results from "./pages/Results";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -47,7 +49,9 @@ function App() {
           </Bubble> */}
             <Route path="/" element={<Home />} />
             <Route path="/register/*" element={<Register />} />
+            <Route path="/elections/*" element={<Vote />} />
             <Route path="/preparation" element={<Preparation />} />
+            <Route path="/results/:id" element={<Results />} />
           </Routes>
           <Footer />
         </BrowserRouter>

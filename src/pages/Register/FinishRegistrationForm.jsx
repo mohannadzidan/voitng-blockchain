@@ -1,19 +1,25 @@
-import { Stack, TextField, Typography } from "@mui/material";
+import { Button, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router";
 import { useMultiStepForm } from "../../components/MultiStepForm";
 import RegistrationFigure from "./figures/RegistrationFigure";
-import RegistrationLayout from "./RegistrationLayout";
+import HussainedForm, {
+  HussainedFormActions,
+} from "../../containers/HussainedForm";
 
 function FinishRegistrationForm() {
   const navigate = useNavigate();
   return (
-    <RegistrationLayout
-      onNext={() => navigate("/elections")}
-      onBack={() => navigate("/")}
-      next="Go to elections"
-      back="Return to home"
+    <HussainedForm
       title="Finish"
+      actions={
+        <HussainedFormActions>
+          <Button onClick={() => navigate("/")}>Return to home</Button>
+          <Button variant="contained" onClick={() => navigate("/elections")}>
+            Go to elections
+          </Button>
+        </HussainedFormActions>
+      }
     >
       <Stack spacing={2}>
         <Typography variant="body1">
@@ -39,7 +45,7 @@ function FinishRegistrationForm() {
           <li>Your Hash code is valid only one time</li>
         </Typography>
       </Stack>
-    </RegistrationLayout>
+    </HussainedForm>
   );
 }
 

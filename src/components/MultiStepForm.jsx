@@ -11,16 +11,17 @@ import { useTransition, animated, useSpring } from "react-spring";
 const MultiStepFormContext = createContext({
   isDefault: true,
   currentStep: 0,
-  next() {},
+  values: {},
+  next(values) {},
   previous() {},
 });
 
 export function useMultiStepForm() {
-  const { isDefault, currentStep, next, previous } =
+  const { isDefault, currentStep, next, previous, values } =
     useContext(MultiStepFormContext);
   if (isDefault)
     throw new Error("cannot use useMultistepForm outside of MultiStepForm");
-  return { currentStep, next, previous };
+  return { currentStep, next, previous, values };
 }
 
 export function FormStep({ index, children }) {
@@ -46,7 +47,14 @@ export default function MultiStepForm({
   children,
 }) {
   const wrapperRef = useRef();
-  const next = useCallback(() => onChange(step + 1), [step, onChange]);
+  const [values, setValues] = useState({});
+  const next = useCallback(
+    (values) => {
+      onChange(step + 1);
+      setValues((v) => Object.assign({}, v, values));
+    },
+    [step, onChange]
+  );
   const previous = useCallback(() => onChange(step - 1), [step, onChange]);
   const [spring, animate] = useSpring(
     () => ({
@@ -80,7 +88,7 @@ export default function MultiStepForm({
 
   return (
     <MultiStepFormContext.Provider
-      value={{ currentStep: step, next, previous }}
+      value={{ currentStep: step, next, previous, values }}
     >
       <animated.div style={{ ...spring }}>
         <div ref={wrapperRef}>{children}</div>

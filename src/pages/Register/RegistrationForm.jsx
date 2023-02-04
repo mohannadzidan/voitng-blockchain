@@ -1,16 +1,24 @@
-import { Stack, TextField, Typography } from "@mui/material";
+import { Button, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useMultiStepForm } from "../../components/MultiStepForm";
+import HussainedForm, {
+  HussainedFormActions,
+} from "../../containers/HussainedForm";
 import RegistrationFigure from "./figures/RegistrationFigure";
-import RegistrationLayout from "./RegistrationLayout";
 
 function RegistrationForm() {
   const { next } = useMultiStepForm();
   return (
-    <RegistrationLayout
-      onNext={next}
+    <HussainedForm
       title="Registration"
       figure={RegistrationFigure}
+      actions={
+        <HussainedFormActions>
+          <Button variant="contained" onClick={next}>
+            Next
+          </Button>
+        </HussainedFormActions>
+      }
     >
       <Stack spacing={2}>
         <div>
@@ -34,7 +42,7 @@ function RegistrationForm() {
           <TextField fullWidth size="small" placeholder="+20 xxx xxxx xxxx" />
         </div>
       </Stack>
-    </RegistrationLayout>
+    </HussainedForm>
   );
 }
 

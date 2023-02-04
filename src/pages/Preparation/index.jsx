@@ -81,7 +81,7 @@ function Preparation() {
                         disableElevation
                         endIcon={<KeyboardArrowRightIcon />}
                         component={Link}
-                        to="/vote"
+                        to="/elections"
                       >
                         I have my hash code, take me to the voting panel
                       </NavigationButton>
