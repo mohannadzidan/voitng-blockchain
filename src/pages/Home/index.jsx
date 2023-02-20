@@ -14,6 +14,9 @@ function Home() {
       sx={{
         background: (theme) => theme.palette.secondary.main,
         color: (theme) => theme.palette.common.white,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}
     >
       <Container
@@ -48,6 +51,7 @@ function Home() {
                   to={"/preparation"}
                   component={Link}
                   disableElevation
+                  sx={{ fontSize: "1rem" }}
                 >
                   {t("hero.vote_now")}
                 </Button>
@@ -57,6 +61,7 @@ function Home() {
                   disableElevation
                   to="/about"
                   component={Link}
+                  sx={{ fontSize: "1rem" }}
                 >
                   {t("read_more")}
                 </Button>
