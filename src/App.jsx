@@ -25,6 +25,7 @@ import Register from "./pages/Register";
 import Preparation from "./pages/Preparation";
 import Vote from "./pages/Vote";
 import Results from "./pages/Results";
+import About from "./pages/About";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -48,6 +49,7 @@ function App() {
             <RegistrationForm />
           </Bubble> */}
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/register/*" element={<Register />} />
             <Route path="/elections/*" element={<Vote />} />
             <Route path="/preparation" element={<Preparation />} />
