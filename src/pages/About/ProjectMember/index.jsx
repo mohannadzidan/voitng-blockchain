@@ -10,7 +10,15 @@ import React from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-function ProjectMember({ displayImage, name, facebookLink, linkedinLink }) {
+function ProjectMember({ member }) {
+  const {
+    displayImage,
+    name,
+    facebookProfile: facebookLink,
+    linkedinProfile: linkedinLink,
+    imgStyles,
+  } = member;
+
   return (
     <Paper
       spacing={2}
@@ -52,7 +60,10 @@ function ProjectMember({ displayImage, name, facebookLink, linkedinLink }) {
             stroke-dasharray="10 20 30 40"
           />
         </svg>
-        <Avatar src={displayImage} sx={{ width: 158, height: 158 }} />
+        <Avatar
+          src={displayImage}
+          sx={{ width: 158, height: 158, "& img": imgStyles }}
+        />
       </Box>
       <Stack spacing={1} justifyContent="space-between" flex={1}>
         <Typography variant="h5" fontWeight="medium" textAlign="center">

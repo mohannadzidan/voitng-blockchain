@@ -56,6 +56,9 @@ const teamMembers = [
     displayImage: "/images/team-members/mohamed-khalid.jpg",
     linkedinProfile: "https://www.linkedin.com/in/mohamed-khaled-916b10234/",
     facebookProfile: "https://www.facebook.com/profile.php?id=100002159652083",
+    imgStyles: {
+      objectPosition: "0 -10px",
+    },
   },
 ];
 
@@ -221,12 +224,7 @@ function About() {
                   justifyContent="center"
                   key={x.name}
                 >
-                  <ProjectMember
-                    name={x.name}
-                    displayImage={x.displayImage}
-                    facebookLink={x.facebookProfile}
-                    linkedinLink={x.linkedinProfile}
-                  />
+                  <ProjectMember member={x} />
                 </Grid>
               ))}
             </Grid>
