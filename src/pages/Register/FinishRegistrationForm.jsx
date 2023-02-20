@@ -16,7 +16,7 @@ function FinishRegistrationForm() {
       title={t("register.finish.title")}
       actions={
         <HussainedFormActions>
-          <Button variant="contained" onClick={() => navigate("/elections")}>
+          <Button variant="contained" onClick={() => navigate("/metamask")}>
             {t("next", { ns: "common" })}
           </Button>
         </HussainedFormActions>

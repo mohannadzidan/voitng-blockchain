@@ -30,6 +30,7 @@ const Results = lazy(() => import("./pages/Results"));
 const Preparation = lazy(() => import("./pages/Preparation"));
 const About = lazy(() => import("./pages/About"));
 const Vote = lazy(() => import("./pages/Vote"));
+const Metamask = lazy(() => import("./pages/Metamask"));
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -85,10 +86,10 @@ function App() {
               }
             />
             <Route
-              path="/preparation"
+              path="/metamask"
               element={
                 <Suspense fallback={<FullscreenLoader />}>
-                  <Preparation />
+                  <Metamask />
                 </Suspense>
               }
             />

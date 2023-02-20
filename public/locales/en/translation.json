@@ -61,5 +61,15 @@
                 "note_2": "Your Hash code is valid only one time"
             }
         }
+    },
+    "metamask": {
+        "do_you_have": "Do you have MetaMask on your device?",
+        "click_to_download": "No I Haven't, Click here to download",
+        "click_to_continue": "Yes I Have, Click to Continue",
+        "steps": [
+            "Click on Add to Chrome",
+            "Click Add extension"
+        ],
+        "go_to_elections": "Go to elections"
     }
 }
