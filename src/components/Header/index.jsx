@@ -95,22 +95,6 @@ function Header() {
             {t("other_language")}
           </Button>
           <Box flex={1} />
-          <Stack direction="row" spacing={2}>
-            <Button color="inherit" onClick={goToAbout}>
-              {t("about")}
-            </Button>
-            <Button color="inherit" onClick={goToContact}>
-              {t("contact")}
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              to={"/preparation"}
-              component={Link}
-            >
-              {t("login")}
-            </Button>
-          </Stack>
         </Toolbar>
       </Container>
     </AppBar>
