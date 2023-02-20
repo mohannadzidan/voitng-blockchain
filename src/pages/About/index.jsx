@@ -5,8 +5,10 @@ import {
   Button,
   Container,
   Grid,
+  Paper,
   Stack,
   styled,
+  TextField,
   Typography,
 } from "@mui/material";
 
@@ -24,6 +26,8 @@ import PriceTagIcon from "../../components/icons/PriceTagIcon";
 import ProjectMember from "./ProjectMember";
 import { Link } from "react-router-dom";
 import Lock from "../../components/icons/Lock";
+import SendIcon from "@mui/icons-material/Send";
+import { HussainedFormActions } from "../../containers/HussainedForm";
 
 const teamMembers = [
   {
@@ -61,6 +65,42 @@ const teamMembers = [
     },
   },
 ];
+
+function ContactForm() {
+  const { t } = useTranslation(["translation", "common"]);
+  return (
+    <Stack spacing={1} component="from" padding={1}>
+      <TextField
+        placeholder={t("email", { ns: "common" })}
+        size="small"
+        sx={{
+          "& .MuiInputBase-root": {
+            background: "white",
+            boxShadow: (theme) => theme.shadows[2],
+          },
+        }}
+      />
+      <TextField
+        multiline
+        minRows={3}
+        maxRows={3}
+        placeholder={t("contact_form.your_problem")}
+        size="small"
+        sx={{
+          "& .MuiInputBase-root": {
+            background: "white",
+            boxShadow: (theme) => theme.shadows[2],
+          },
+        }}
+      />
+      <HussainedFormActions>
+        <Button variant="contained" startIcon={<SendIcon />}>
+          {t("send", { ns: "common" })}
+        </Button>
+      </HussainedFormActions>
+    </Stack>
+  );
+}
 
 function About() {
   const { t } = useTranslation();
@@ -182,7 +222,7 @@ function About() {
           </Grid>
         </Container>
       </Section>
-      <Section id="about">
+      <Section id="about" sx={{ minHeight: "unset" }}>
         <Container
           maxWidth="lg"
           sx={{
@@ -215,20 +255,43 @@ function About() {
             >
               {t("landing.about.meet_the_team_p1")}
             </Typography>
-            <Grid container columnSpacing={3} rowSpacing={3}>
-              {teamMembers.map((x) => (
-                <Grid
-                  item
-                  xs
-                  display="flex"
-                  justifyContent="center"
-                  key={x.name}
-                >
-                  <ProjectMember member={x} />
-                </Grid>
-              ))}
-            </Grid>
+            <div>
+              <Grid container columnSpacing={3} rowSpacing={3}>
+                {teamMembers.map((x) => (
+                  <Grid
+                    item
+                    xs
+                    display="flex"
+                    justifyContent="center"
+                    key={x.name}
+                  >
+                    <ProjectMember member={x} />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
           </Stack>
+        </Container>
+      </Section>
+      <Section sx={{ minHeight: "unset" }}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            paddingY: 2,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Typography
+            variant="h3"
+            color="secondary"
+            fontWeight="medium"
+            textAlign="center"
+            id="contact"
+          >
+            {t("contact_form.title")}
+          </Typography>
+          <ContactForm />{" "}
         </Container>
       </Section>
     </>

@@ -3,8 +3,10 @@
     "back": "Back",
     "name": "Name",
     "age": "Age",
+    "email": "E-mail",
     "phone_number": "Phone number",
     "national_id": "National ID",
     "address": "Address",
-    "full_name": "Full name"
+    "full_name": "Full name",
+    "send": "Send"
 }
