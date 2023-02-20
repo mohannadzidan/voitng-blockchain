@@ -1,5 +1,5 @@
 import { Container, Paper, styled, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Route, Routes, useSearchParams } from "react-router-dom";
 import RegistrationForm from "./RegistrationForm";
 import Stepper from "../../components/Stepper";
@@ -10,28 +10,26 @@ import MultiStepForm, {
 import IdentityVerificationForm from "./IdentityVerificationForm";
 import ReviewDetailsForm from "./ReviewDetailsForm";
 import FinishRegistrationForm from "./FinishRegistrationForm";
+import { useTranslation } from "react-i18next";
 
 const Wrapper = styled("div")`
   min-height: 100vh;
   background-color: ${({ theme }) => theme.palette.background.paper};
 `;
 
-const titles = [
-  "Enter your info",
-  "Identity Verification",
-  "Review Details",
-  "Finish",
-];
-
 function Register() {
   const [step, setStep] = useState(0);
+  const { t } = useTranslation();
+  const titles = useMemo(() => [
+    t("register.info.title"),
+    t("register.identity_verification.title"),
+    t("register.review_details.title"),
+    t("register.finish.title"),
+  ]);
   return (
     <Wrapper>
       <Container maxWidth="lg" sx={{ paddingTop: 10 }}>
-        <Stepper
-          titles={titles}
-          activeStep={step}
-        />
+        <Stepper titles={titles} activeStep={step} />
         <Paper
           sx={{
             padding: 4,

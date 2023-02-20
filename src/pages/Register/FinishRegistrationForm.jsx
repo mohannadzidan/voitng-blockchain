@@ -6,25 +6,25 @@ import RegistrationFigure from "./figures/RegistrationFigure";
 import HussainedForm, {
   HussainedFormActions,
 } from "../../containers/HussainedForm";
+import { useTranslation } from "react-i18next";
 
 function FinishRegistrationForm() {
   const navigate = useNavigate();
+  const { t } = useTranslation(["translation", "common"]);
   return (
     <HussainedForm
-      title="Finish"
+      title={t("register.finish.title")}
       actions={
         <HussainedFormActions>
-          <Button onClick={() => navigate("/")}>Return to home</Button>
           <Button variant="contained" onClick={() => navigate("/elections")}>
-            Go to elections
+            {t("next", { ns: "common" })}
           </Button>
         </HussainedFormActions>
       }
     >
       <Stack spacing={2}>
         <Typography variant="body1">
-          Congratulations, you have finished your registration and you are able
-          to use your hash code now to vote, your hash code is as the following
+          {t("register.finish.congratulations")}
         </Typography>
         <Typography
           fontFamily="monospace"
@@ -38,11 +38,11 @@ function FinishRegistrationForm() {
           ff4d86bc0e00cd4b7ff4d86bc0e00cd4b7b90660cd4b7ff4d86bbc0e0e00cd4b7b90660cd4b7ff4d86bbc0e00cd4b7b9066ffa083ee9dfb18b6bc0e0ffa083ee9dfb18b620b90ff4d86bc0e00cd4b7b9066ffa083ee9dfb18b62066ffa083ee9dfb18b620
         </Typography>
         <Typography variant="h4" fontWeight="medium">
-          Important Notes
+          {t("register.finish.important_notes.title")}
         </Typography>
         <Typography variant="body1" fontWeight="medium" component="ul">
-          <li>Your Hash code is very important Keep it secret</li>
-          <li>Your Hash code is valid only one time</li>
+          <li>{t("register.finish.important_notes.note_1")}</li>
+          <li>{t("register.finish.important_notes.note_2")}</li>
         </Typography>
       </Stack>
     </HussainedForm>

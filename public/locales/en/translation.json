@@ -39,5 +39,27 @@
             "meet_the_team_p1": "We are five Computer Engineering students at El Shorouk academy",
             "p1": "An online voting system that will replace the  old paper system. Over the time we have utilized the required technology in every sector to improve efficiency and save the extra resources. But the voting system is still very  expensive and requires a bigger workforce. The system is slower and still not completely tamper proof. We bring the system that is safe, reliable and solve the modern issues like higher reachability of the booth, crowd free voting,  inexpensive, faster results and others."
         }
+    },
+    "register": {
+        "info": {
+            "title": "Registration"
+        },
+        "identity_verification": {
+            "title": "Identity verification"
+        },
+        "review_details": {
+            "title": "Review Details",
+            "verified": "Verified",
+            "eligble": "Eligble"
+        },
+        "finish": {
+            "title": "Finish",
+            "congratulations": "Congratulations, you have finished your registration and you are able to use your hash code now to vote, your hash code is as the following",
+            "important_notes": {
+                "title": "Important Notes",
+                "note_1": "Your Hash code is very important Keep it secret",
+                "note_2": "Your Hash code is valid only one time"
+            }
+        }
     }
 }

@@ -1,0 +1,10 @@
+{
+    "next": "Next",
+    "back": "Back",
+    "name": "Name",
+    "age": "Age",
+    "phone_number": "Phone number",
+    "national_id": "National ID",
+    "address": "Address",
+    "full_name": "Full name"
+}

@@ -6,20 +6,22 @@ import VerificationFigure from "./figures/VerificationFigure";
 import HussainedForm, {
   HussainedFormActions,
 } from "../../containers/HussainedForm";
+import { useTranslation } from "react-i18next";
 
 function IdentityVerificationForm() {
   const { next, previous } = useMultiStepForm();
+  const { t } = useTranslation();
   return (
     <HussainedForm
-      title="Identity verification"
+      title={t("register.identity_verification.title")}
       figure={VerificationFigure}
       actions={
         <HussainedFormActions>
-        <Button onClick={previous}>Back</Button>
-        <Button variant="contained" onClick={next}>
-          Next
-        </Button>
-      </HussainedFormActions>
+          <Button onClick={previous}> {t("back", { ns: "common" })}</Button>
+          <Button variant="contained" onClick={next}>
+            {t("next", { ns: "common" })}
+          </Button>
+        </HussainedFormActions>
       }
     >
       <Webcam

@@ -2,7 +2,10 @@ import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useMultiStepForm } from "../../components/MultiStepForm";
 import DetailsFigure from "./figures/DetailsFigure";
-import HussainedForm, { HussainedFormActions } from "../../containers/HussainedForm";
+import HussainedForm, {
+  HussainedFormActions,
+} from "../../containers/HussainedForm";
+import { useTranslation } from "react-i18next";
 
 function Field({ title, children }) {
   return (
@@ -19,42 +22,47 @@ function Field({ title, children }) {
 
 function ReviewDetailsForm() {
   const { next, previous } = useMultiStepForm();
+  const { t } = useTranslation(["translation", "common"]);
   return (
     <HussainedForm
-      title="Review Details"
+      title={t("register.review_details.title")}
       figure={DetailsFigure}
       actions={
         <HussainedFormActions>
-        <Button onClick={previous}>Back</Button>
-        <Button variant="contained" onClick={next}>
-          Next
-        </Button>
-      </HussainedFormActions>
+          <Button onClick={previous}> {t("back", { ns: "common" })}</Button>
+          <Button variant="contained" onClick={next}>
+            {t("next", { ns: "common" })}
+          </Button>
+        </HussainedFormActions>
       }
     >
       <Grid container rowSpacing={2}>
         <Grid item xs={12}>
-          <Field title="Name">Omar Tarek</Field>
+          <Field title={t("name", { ns: "common" })}>Omar Tarek</Field>
         </Grid>
         <Grid item xs={6}>
-          <Field title="Age">23</Field>
+          <Field title={t("age", { ns: "common" })}>23</Field>
         </Grid>
         <Grid item xs={6}>
-          <Field title="Phone number">01xxxxxxxxxx</Field>
+          <Field title={t("phone_number", { ns: "common" })}>
+            01xxxxxxxxxx
+          </Field>
         </Grid>
         <Grid item xs={12}>
-          <Field title="National ID">6100 4080 9126 0909</Field>
+          <Field title={t("national_id", { ns: "common" })}>
+            >6100 4080 9126 0909
+          </Field>
         </Grid>
         <Grid item xs={12}>
-          <Field title="Address">
+          <Field title={t("address", { ns: "common" })}>
             XYZ, Street No. 92, Qalyubia, Banha, 100021
           </Field>
         </Grid>
         <Grid item xs={6}>
-          <Field title="Verified">Yes</Field>
+          <Field title={t("register.review_details.verified")}>Yes</Field>
         </Grid>
         <Grid item xs={6}>
-          <Field title="Eligble">Yes</Field>
+          <Field title={t("register.review_details.eligble")}>Yes</Field>
         </Grid>
       </Grid>
     </HussainedForm>
