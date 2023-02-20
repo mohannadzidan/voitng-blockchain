@@ -48,7 +48,7 @@ function Home() {
               <Stack direction="row" spacing={2}>
                 <Button
                   variant="contained"
-                  to={"/preparation"}
+                  to={"/register"}
                   component={Link}
                   disableElevation
                   sx={{ fontSize: "1rem" }}
