@@ -1,9 +1,10 @@
-import * as React from "react"
+import * as React from "react";
 
 const Lock = (props) => (
   <svg
     width="1em"
     height="1em"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -13,6 +14,6 @@ const Lock = (props) => (
       fill="#222145"
     />
   </svg>
-)
+);
 
-export default Lock
+export default Lock;
