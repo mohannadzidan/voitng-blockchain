@@ -1,7 +1,17 @@
 import React from "react";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 function HussainedForm({ title, figure, children, actions }) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid container rowSpacing={4} columnSpacing={2}>
       {title && (
@@ -11,10 +21,10 @@ function HussainedForm({ title, figure, children, actions }) {
           </Typography>
         </Grid>
       )}
-      <Grid item xs={figure ? 6 : 12}>
+      <Grid item xs={!isMobile && figure ? 6 : 12}>
         <Box marginLeft={2}>{children}</Box>
       </Grid>
-      {figure && (
+      {!isMobile && figure && (
         <Grid
           item
           xs={6}

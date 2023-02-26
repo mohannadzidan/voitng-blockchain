@@ -31,15 +31,23 @@ function Home() {
         <Grid container>
           <Grid
             item
-            xs={6}
+            xs={12}
+            md={6}
             display="flex"
             justifyContent="center"
             alignItems="center"
-            height="60vh"
+            height={{
+              xs: "unset",
+              md: "60vh",
+            }}
+            width={{
+              xs: "100%",
+              md: "unset",
+            }}
           >
-            <HeroIllustration />
+            <HeroIllustration height="100%" />
           </Grid>
-          <Grid item xs={6} display="flex" alignItems="center">
+          <Grid item xs={12} md={6} display="flex" alignItems="center">
             <Stack spacing={2}>
               <Typography variant="h2" fontWeight="medium">
                 {t("hero.part_of_decision")}

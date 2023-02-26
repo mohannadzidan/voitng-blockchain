@@ -33,7 +33,9 @@ function Register() {
         <Paper
           sx={{
             padding: 4,
-            marginX: 16,
+            marginX: {
+              md: 16,
+            },
             borderRadius: "8px",
             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             background: "#fff",

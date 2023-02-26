@@ -2,8 +2,7 @@ import * as React from "react";
 
 const HeroIllustration = (props) => (
   <svg
-    width={546}
-    height={364}
+    viewBox="0 0 546 364"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}

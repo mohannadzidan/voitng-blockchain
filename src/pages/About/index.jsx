@@ -117,7 +117,8 @@ function About() {
           <Grid container sx={{ height: "100%" }}>
             <Grid
               item
-              xs={6}
+              xs={12}
+              md={6}
               display="flex"
               flexDirection="column"
               justifyContent="center"
@@ -172,7 +173,8 @@ function About() {
             </Grid>
             <Grid
               item
-              xs={6}
+              xs={12}
+              md={6}
               display="flex"
               flexDirection="column"
               justifyContent="center"

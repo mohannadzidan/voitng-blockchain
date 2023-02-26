@@ -1,4 +1,11 @@
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import Webcam from "react-webcam";
 import { useMultiStepForm } from "../../components/MultiStepForm";
@@ -7,6 +14,7 @@ import HussainedForm, {
   HussainedFormActions,
 } from "../../containers/HussainedForm";
 import { useTranslation } from "react-i18next";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 
 function IdentityVerificationForm() {
   const { next, previous } = useMultiStepForm();
@@ -34,6 +42,16 @@ function IdentityVerificationForm() {
           objectFit: "cover",
         }}
       />
+      <Stack alignItems="center">
+        <IconButton
+          color="primary"
+          sx={{
+            fontSize: 40,
+          }}
+        >
+          <CameraAltIcon fontSize="inherit" />
+        </IconButton>
+      </Stack>
     </HussainedForm>
   );
 }
