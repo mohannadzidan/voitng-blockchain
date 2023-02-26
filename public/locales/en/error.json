@@ -1,0 +1,4 @@
+{
+    "invalid_national_id": "The national id you entered is invalid, it must be 14 digits long",
+    "invalid_full_name": "The full name you entered is invalid, it must be at least 8 characters"
+}

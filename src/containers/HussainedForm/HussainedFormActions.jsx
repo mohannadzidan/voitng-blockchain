@@ -10,8 +10,9 @@ export default function HussainedFormActions({ children }) {
       alignItems="center"
       sx={{
         "& .MuiButton-root": {
+          height: "36.5px",
           minWidth: 140,
-          boxShadow: "unset",
+          boxShadow: "unset!important",
         },
       }}
     >

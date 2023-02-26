@@ -9,11 +9,17 @@ import {
   useTheme,
 } from "@mui/material";
 
-function HussainedForm({ title, figure, children, actions }) {
+function HussainedForm({ title, figure, children, actions, ...props }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Grid container rowSpacing={4} columnSpacing={2}>
+    <Grid
+      container
+      rowSpacing={4}
+      columnSpacing={2}
+      component="form"
+      {...props}
+    >
       {title && (
         <Grid item xs={12}>
           <Typography variant="h3" fontWeight="medium">

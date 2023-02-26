@@ -61,8 +61,8 @@ function AppLogo(props) {
           y2="48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F9F9F9" />
-          <stop offset="1" stopColor="#DFE0FF" />
+          <stop stopColor="#272646" />
+          <stop offset="1" stopColor="#4f4c96" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_308_8402"
@@ -72,8 +72,8 @@ function AppLogo(props) {
           y2="12.8637"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FB6054" />
-          <stop offset="1" stopColor="#FF5763" />
+          <stop stopColor="#fff" />
+          <stop offset="1" stopColor="#d6d6d6" />
         </linearGradient>
       </defs>
     </SvgIcon>

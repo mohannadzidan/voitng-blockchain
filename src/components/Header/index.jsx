@@ -16,7 +16,7 @@ import AppLogo from "../AppLogo";
 import LanguageIcon from "@mui/icons-material/Language";
 import { useCallback, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
 
 function useNavScroll(path, hash, { timeoutRef, ...options }) {
@@ -36,11 +36,8 @@ function Header() {
     disableHysteresis: true,
     threshold: 0,
   });
+  const { pathname } = useLocation();
   const theme = useTheme();
-  const bgColor = useMemo(
-    () => alpha(theme.palette.background.paper, 0.8),
-    [theme]
-  );
   const { t, i18n } = useTranslation();
   const toggleLanguage = useCallback(() => {
     const lang = i18n.language === "en" ? "ar" : "en";
@@ -49,27 +46,16 @@ function Header() {
     i18n.changeLanguage(i18n.language === "en" ? "ar" : "en");
   }, [i18n]);
   const scrollTimeoutRef = useRef();
-  const goToAbout = useNavScroll("/", "about", {
-    timeoutRef: scrollTimeoutRef,
-    offset: -64,
-    duration: 500,
-    smooth: true,
-  });
-  const goToContact = useNavScroll("/", "contact", {
-    timeoutRef: scrollTimeoutRef,
-    offset: -82,
-    duration: 500,
-    smooth: true,
-  });
   return (
     <AppBar
       sx={{
         backgroundColor: trigger
           ? theme.palette.background.paper
           : "transparent",
-        color: trigger
-          ? theme.palette.common.black
-          : theme.palette.common.white,
+        color:
+          trigger || pathname !== "/"
+            ? theme.palette.common.black
+            : theme.palette.common.white,
         backdropFilter: "blur(3px)",
       }}
       elevation={trigger ? 4 : 0}
@@ -85,7 +71,7 @@ function Header() {
             }}
           >
             <AppLogo fontSize="large" />
-            <Typography>Blockchain Election</Typography>
+            <Typography>{t("blockchain_election")}</Typography>
           </Stack>
           <Button
             variant="text"

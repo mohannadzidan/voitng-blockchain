@@ -6,6 +6,7 @@
         "or": "or",
         "vote_now": "Vote Now"
     },
+    "blockchain_election": "Blockchain Election",
     "read_more": "Read more",
     "about": "About",
     "contact": "Contact",
@@ -47,7 +48,9 @@
     },
     "register": {
         "info": {
-            "title": "Registration"
+            "title": "Registration",
+            "enter_full_name": "Enter your full name",
+            "enter_national_id": "Enter your National ID"
         },
         "identity_verification": {
             "title": "Identity verification"
