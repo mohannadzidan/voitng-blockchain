@@ -46,6 +46,17 @@
         "send": "Send",
         "your_problem": "Your problem"
     },
+    "admin_panel": {
+        "title": "Admin Panel",
+        "registration_system": {
+            "title": "Registration System",
+            "description": "Edit, Delete And Search in Database "
+        },
+        "voting_system": {
+            "title": "Voting System",
+            "description": "Start Election, End Election And Add candidate"
+        }
+    },
     "register": {
         "info": {
             "title": "Registration",

@@ -21,7 +21,7 @@ function Field({ title, children }) {
 }
 
 function ReviewDetailsForm() {
-  const { next, previous } = useMultiStepForm();
+  const { next, previous, values } = useMultiStepForm();
   const { t } = useTranslation(["translation", "common"]);
   return (
     <HussainedForm
@@ -37,10 +37,12 @@ function ReviewDetailsForm() {
       }
     >
       <Stack spacing={2}>
-        <Field title={t("name", { ns: "common" })}>Omar Tarek</Field>
-        <Field title={t("phone_number", { ns: "common" })}>01xxxxxxxxxx</Field>
+        <Field title={t("name", { ns: "common" })}>{values.fullName}</Field>
+        <Field title={t("phone_number", { ns: "common" })}>
+          {values.phone}
+        </Field>
         <Field title={t("national_id", { ns: "common" })}>
-          6100 4080 9126 0909
+          {values.nationalId}
         </Field>
         <Field title={t("register.review_details.eligble")}>
           {t("yes", { ns: "common" })}

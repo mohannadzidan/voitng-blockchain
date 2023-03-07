@@ -2,17 +2,20 @@ import {
   alpha,
   Button,
   Container,
-  darken,
   Paper,
   Stack,
   styled,
+  Tooltip,
   Typography,
+  Link,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PreparationFigure from "./figures/PreparationFigure";
-import { Link } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
+import InfoIcon from "@mui/icons-material/Info";
+import { useTranslation } from "react-i18next";
+import baseUrl from "../../baseUrl";
 
 const Wrapper = styled("div")`
   min-height: 100vh;
@@ -28,7 +31,8 @@ const NavigationButton = styled(Button)`
   }
 `;
 
-function Preparation() {
+function AdminPanel() {
+  const { t } = useTranslation();
   const transition = useTransition(true, {
     config: {
       damping: 0.8,
@@ -58,33 +62,60 @@ function Preparation() {
                 >
                   <Stack alignItems="center" spacing={2}>
                     <Typography variant="h3" fontWeight="medium">
-                      Do You Have Your Hash Code?
+                      {t("admin_panel.title")}
                     </Typography>
                     <PreparationFigure />
-                    <Typography variant="body1" fontWeight="medium">
-                      Your Hash code is important to the election process and
-                      you can’t vote without it, You Must Take it by registering
-                      the first time.
-                    </Typography>
                     <Stack width="100%" alignItems="start" spacing={1}>
-                      <NavigationButton
-                        variant="contained"
-                        disableElevation
-                        endIcon={<KeyboardArrowRightIcon />}
-                        component={Link}
-                        to="/register"
-                      >
-                        I don’t have my hash code, i want to register
-                      </NavigationButton>
-                      <NavigationButton
-                        variant="contained"
-                        disableElevation
-                        endIcon={<KeyboardArrowRightIcon />}
-                        component={Link}
-                        to="/elections"
-                      >
-                        I have my hash code, take me to the voting panel
-                      </NavigationButton>
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <NavigationButton
+                          variant="contained"
+                          disableElevation
+                          endIcon={<KeyboardArrowRightIcon />}
+                          component={Link}
+                          href={`${baseUrl}/admin`}
+                        >
+                          {t("admin_panel.registration_system.title")}
+                        </NavigationButton>
+                        <Tooltip
+                          title={t(
+                            "admin_panel.registration_system.description"
+                          )}
+                          placement="top"
+                          arrow
+                        >
+                          <InfoIcon
+                            sx={{
+                              fontSize: "16px",
+                              color: (theme) =>
+                                alpha(theme.palette.secondary.main, 0.6),
+                            }}
+                          />
+                        </Tooltip>
+                      </Stack>
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <NavigationButton
+                          variant="contained"
+                          disableElevation
+                          endIcon={<KeyboardArrowRightIcon />}
+                          component={Link}
+                          href="/elections"
+                        >
+                          {t("admin_panel.voting_system.title")}
+                        </NavigationButton>
+                        <Tooltip
+                          title={t("admin_panel.voting_system.description")}
+                          placement="top"
+                          arrow
+                        >
+                          <InfoIcon
+                            sx={{
+                              fontSize: "16px",
+                              color: (theme) =>
+                                alpha(theme.palette.secondary.main, 0.6),
+                            }}
+                          />
+                        </Tooltip>
+                      </Stack>
                     </Stack>
                   </Stack>
                 </Paper>
@@ -96,4 +127,4 @@ function Preparation() {
   );
 }
 
-export default Preparation;
+export default AdminPanel;

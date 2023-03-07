@@ -14,7 +14,7 @@ import HussainedForm, {
 import RegistrationFigure from "./figures/RegistrationFigure";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import baseUrl from "../../baseUrl";
+import { Rest } from "../../baseUrl";
 
 function RegistrationForm() {
   const { next } = useMultiStepForm();
@@ -30,6 +30,10 @@ function RegistrationForm() {
           .string(t("invalid_full_name", { ns: "error" }))
           .required(t("invalid_full_name", { ns: "error" }))
           .min(8, t("invalid_full_name", { ns: "error" })),
+        phone: yup
+          .string(t("invalid_full_name", { ns: "error" }))
+          .required(t("invalid_full_name", { ns: "error" }))
+          .min(8, t("invalid_full_name", { ns: "error" })),
       }),
     [t]
   );
@@ -37,26 +41,29 @@ function RegistrationForm() {
     initialValues: {
       nationalId: "",
       fullName: "",
+      phone: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
       setLoading(true);
-      fetch(baseUrl, {
-        method: "POST",
-        body: JSON.stringify({
-          username: values.fullName,
-          password: values.nationalId,
-        }),
+      Rest.post("/token/", {
+        username: values.fullName,
+        password: values.nationalId,
       })
         .then((response) => {
-          console.log(response);
-          next();
+          const {
+            data: { access, refresh },
+          } = response;
+          localStorage.setItem("access", access);
+          localStorage.setItem("refresh", refresh);
+          next(values);
         })
-        .catch(() => {
-          next();
+        .catch((e) => {
+          console.error(e);
         })
         .finally(() => {
           setLoading(false);
+          next(values);
         });
     },
   });
@@ -115,7 +122,15 @@ function RegistrationForm() {
           <Typography fontWeight="light">
             {t("phone_number", { ns: "common" })}
           </Typography>
-          <TextField fullWidth size="small" placeholder="+20 xxx xxxx xxxx" />
+          <TextField
+            fullWidth
+            size="small"
+            placeholder="+20 xxx xxxx xxxx"
+            name="phone"
+            onChange={formik.handleChange}
+            value={formik.values.phone}
+            error={formik.touched.phone && Boolean(formik.errors.phone)}
+          />
         </div>
       </Stack>
     </HussainedForm>

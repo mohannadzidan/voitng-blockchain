@@ -1,5 +1,12 @@
-import { Button, Stack, TextField, Typography } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useMultiStepForm } from "../../components/MultiStepForm";
 import RegistrationFigure from "./figures/RegistrationFigure";
@@ -7,10 +14,28 @@ import HussainedForm, {
   HussainedFormActions,
 } from "../../containers/HussainedForm";
 import { useTranslation } from "react-i18next";
+import { Rest } from "../../baseUrl";
 
 function FinishRegistrationForm() {
   const navigate = useNavigate();
   const { t } = useTranslation(["translation", "common"]);
+  const [hash, setHash] = useState(
+    "ff4d86bcee9df90660cd4b7ff4d80e00cd400cd4b7b9066ffa0836bbc0e"
+  );
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    Rest.get("hash/")
+      .then(({ code }) => {
+        setHash(code);
+      })
+      .catch(console.error)
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <HussainedForm
       title={t("register.finish.title")}
@@ -35,7 +60,13 @@ function FinishRegistrationForm() {
           }}
           component="div"
         >
-          ff4d86bc0e00cd4b7ff4d86bc0e00cd4b7b90660cd4b7ff4d86bbc0e0e00cd4b7b90660cd4b7ff4d86bbc0e00cd4b7b9066ffa083ee9dfb18b6bc0e0ffa083ee9dfb18b620b90ff4d86bc0e00cd4b7b9066ffa083ee9dfb18b62066ffa083ee9dfb18b620
+          {isLoading ? (
+            <Box sx={{ justifyContent: "center" }}>
+              <CircularProgress />
+            </Box>
+          ) : (
+            hash
+          )}
         </Typography>
         <Typography variant="h4" fontWeight="medium">
           {t("register.finish.important_notes.title")}

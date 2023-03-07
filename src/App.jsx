@@ -27,7 +27,7 @@ import FullscreenLoader from "./components/FullscreenLoader";
 const Home = lazy(() => import("./pages/Home"));
 const Register = lazy(() => import("./pages/Register"));
 const Results = lazy(() => import("./pages/Results"));
-const Preparation = lazy(() => import("./pages/Preparation"));
+const AdminPanel = lazy(() => import("./pages/Preparation"));
 const About = lazy(() => import("./pages/About"));
 const Vote = lazy(() => import("./pages/Vote"));
 const Metamask = lazy(() => import("./pages/Metamask"));
@@ -98,6 +98,15 @@ function App() {
               element={
                 <Suspense fallback={<FullscreenLoader />}>
                   <Results />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="/admin"
+              element={
+                <Suspense fallback={<FullscreenLoader />}>
+                  <AdminPanel />
                 </Suspense>
               }
             />
