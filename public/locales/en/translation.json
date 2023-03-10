@@ -61,7 +61,8 @@
         "info": {
             "title": "Registration",
             "enter_full_name": "Enter your full name",
-            "enter_national_id": "Enter your National ID"
+            "enter_national_id": "Enter your National ID",
+            "enter_phone_number": "Enter your phone number"
         },
         "identity_verification": {
             "title": "Identity verification"

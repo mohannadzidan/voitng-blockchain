@@ -61,7 +61,8 @@
         "info": {
             "title": "تسجيل",
             "enter_full_name": "ادخل الاسم بالكامل",
-            "enter_national_id": "ادخل الرقم القومي"
+            "enter_national_id": "ادخل الرقم القومي",
+            "enter_phone_number": "ادخل رقم الهاتف"
         },
         "identity_verification": {
             "title": "التحقق من الهوية"

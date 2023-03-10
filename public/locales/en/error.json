@@ -1,7 +1,7 @@
 {
     "invalid_national_id": "The national id you entered is invalid, it must be 14 digits long",
     "invalid_full_name": "The full name you entered is invalid, it must be at least 8 characters",
-    "personal_inforation": {
+    "personal_information": {
         "title": "Verify personal information",
         "message": "If the problem persists, unfortunately you are not eligible to vote"
     },
