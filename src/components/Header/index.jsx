@@ -62,17 +62,19 @@ function Header() {
     >
       <Container maxWidth="lg">
         <Toolbar>
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1}
-            sx={{
-              marginInlineEnd: 2,
-            }}
-          >
-            <AppLogo fontSize="large" />
-            <Typography>{t("blockchain_election")}</Typography>
-          </Stack>
+          <Button color='inherit' component={Link} to='/'>
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={1}
+              sx={{
+                marginInlineEnd: 2,
+              }}
+            >
+              <AppLogo fontSize="large" />
+              <Typography>{t("blockchain_election")}</Typography>
+            </Stack>
+          </Button>
           <Button
             variant="text"
             startIcon={<LanguageIcon />}

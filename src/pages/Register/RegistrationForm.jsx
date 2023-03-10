@@ -130,7 +130,7 @@ function RegistrationForm() {
           <TextField
             fullWidth
             size="small"
-            placeholder="+20 xxx xxxx xxxx"
+            placeholder={t("register.info.enter_phone_number")}
             name="phone"
             onChange={formik.handleChange}
             value={formik.values.phone}
