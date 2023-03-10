@@ -1,4 +1,21 @@
 {
     "invalid_national_id": "The national id you entered is invalid, it must be 14 digits long",
-    "invalid_full_name": "The full name you entered is invalid, it must be at least 8 characters"
+    "invalid_full_name": "The full name you entered is invalid, it must be at least 8 characters",
+    "personal_inforation": {
+        "title": "Verify personal information",
+        "message": "If the problem persists, unfortunately you are not eligible to vote"
+    },
+    "identity": {
+        "title": "Face ID mismatch",
+        "steps": [
+            "Make sure that you are in a well-lit area with no shadows on your face",
+            "Position yourself so that your face is centered in the frame. with no other face in the frame",
+            "Remove any hats, glasses, or other items that may obscure your face",
+            "Look directly at the camera and try to maintain a neutral expression",
+            "Click on the \"Capture\" button",
+            "Hold still for a few seconds while the system captures your image",
+            "Check the preview to make sure that your face is clearly visible and in focus",
+            "Click on the \"Submit\"  button to complete the verification process"
+        ]
+    }
 }

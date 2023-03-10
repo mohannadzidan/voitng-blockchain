@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { useMultiStepForm } from "../../components/MultiStepForm";
 import RegistrationFigure from "./figures/RegistrationFigure";
@@ -19,16 +19,17 @@ import { Rest } from "../../baseUrl";
 function FinishRegistrationForm() {
   const navigate = useNavigate();
   const { t } = useTranslation(["translation", "common"]);
-  const [hash, setHash] = useState(
-    "ff4d86bcee9df90660cd4b7ff4d80e00cd400cd4b7b9066ffa0836bbc0e"
-  );
+  const [hash, setHash] = useState();
   const [isLoading, setLoading] = useState(false);
-
+  const sent = useRef(false);
   useEffect(() => {
+    if (sent.current) return;
     setLoading(true);
+    sent.current = true;
     Rest.get("hash/")
-      .then(({ code }) => {
-        setHash(code);
+      .then((res) => {
+        console.log("code", res?.data?.code);
+        setHash(res?.data?.code);
       })
       .catch(console.error)
       .finally(() => {

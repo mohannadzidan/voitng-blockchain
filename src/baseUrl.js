@@ -2,7 +2,7 @@ import axios, { Axios } from "axios";
 
 const baseUrl =
   process.env.NODE_ENV === "development"
-    ? "https://e4b9-41-40-151-208.eu.ngrok.io"
+    ? "https://4d2b-197-62-34-110.eu.ngrok.io"
     : "https://127.0.0.1:8000";
 
 export const Rest = axios.create({

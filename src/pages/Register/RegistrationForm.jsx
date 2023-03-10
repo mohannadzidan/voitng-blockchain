@@ -1,6 +1,10 @@
 import {
   Button,
   CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Stack,
   TextField,
   Typography,
@@ -37,6 +41,7 @@ function RegistrationForm() {
       }),
     [t]
   );
+  const [error, setError] = useState(false);
   const formik = useFormik({
     initialValues: {
       nationalId: "",
@@ -59,11 +64,11 @@ function RegistrationForm() {
           next(values);
         })
         .catch((e) => {
+          setError(true);
           console.error(e);
         })
         .finally(() => {
           setLoading(false);
-          next(values);
         });
     },
   });
@@ -133,6 +138,29 @@ function RegistrationForm() {
           />
         </div>
       </Stack>
+      <Dialog open={error}>
+        <DialogTitle>
+          {t("personal_information.title", {
+            ns: "error",
+          })}
+        </DialogTitle>
+        <DialogContent>
+          {t("personal_information.message", {
+            ns: "error",
+          })}
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="contained"
+            disableElevation
+            onClick={() => setError(false)}
+          >
+            {t("try_again", {
+              ns: "common",
+            })}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </HussainedForm>
   );
 }
